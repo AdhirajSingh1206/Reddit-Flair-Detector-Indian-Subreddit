@@ -17,6 +17,7 @@ def main():
 def automated_testing():
     if request.method == 'POST':
         file = request.files['file'] 
+        content = file.read()
         print(content)
         return jsonify(content)
     if request.method == 'GET':
