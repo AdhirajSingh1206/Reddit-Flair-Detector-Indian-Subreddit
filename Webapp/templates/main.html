@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <style>
+        form {
+            margin: auto;
+            width: 50%;
+        }
+
+        .result {
+            margin: auto;
+            width: 45%;
+            border: 2px solid #ccc;
+        }
+    </style>
+
+    <head>
+        <title>ASINGH</title>
+    </head>
+
+    <form action="{{ url_for('main') }}" method="POST">
+        <fieldset>
+            <legend>Reddit Flair Detector:</legend>
+            Enter URl from Reddit r/india:
+            <br>
+            <input name="link" type="text" required>
+            <br>
+            <input type="Submit">
+        </fieldset>
+    </form>
+
+    <br>
+    <br>
+
+
+    <div class="result" align="center">
+        {% if result %}
+            {% for variable, value in original_input.items() %}
+                <b>{{ variable }}</b> : {{ value }}
+            {% endfor %}
+            <br>
+            <br> The predicted Flair of this post:
+            <p style="font-size:25px">{{ result }}</p>
+        {% endif %}
+    </div>
+    
+</html>
