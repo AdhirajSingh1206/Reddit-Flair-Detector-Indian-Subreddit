@@ -12,9 +12,14 @@ nltk.download('stopwords')
 from flask import Flask, render_template, request
 import json
 
+app = Flask(__name__, template_folder='templates')
+
+model = pickle.load(open('RM.pkl','rb'))
+
 reddit = praw.Reddit(client_id="ffKcEa2xKfnhyg", client_secret="IJqQkTrDio0xKsKYKYmgeWSoOLM",
                      user_agent="flair_predication", username="ASingh1206",
                      password="g5gh#4$iQFGNBad")
+
 
 replace_by_space = re.compile('[/(){}\[\]\|@,;]')
 replace_symbol = re.compile('[^0-9a-z #+_]')
@@ -26,6 +31,7 @@ def clean_text(text):
     text = replace_symbol.sub('', text) # delete symbols from text
     text = ' '.join(word for word in text.split() if word not in STOPWORDS) # remove STOPWORDS from text
     return text
+
 
 def get_data(link):
 
@@ -54,10 +60,6 @@ def get_data(link):
 
     return combined_features
 
-app = Flask(__name__, template_folder='templates')
-
-model = pickle.load(open('RM.pkl','rb'))
-
 @app.route('/', methods=['GET', 'POST'])
 def main():
     if request.method == 'GET':
@@ -71,7 +73,7 @@ def main():
         return render_template('main.html',original_input={'URl of post':link}, result=result)
 
 @app.route('/automated_testing', methods=['GET', 'POST'])
-def automated_testing():
+def automated_testing():    
     if request.method == 'POST':
         file = request.files['upload_file'] 
         #content = str(file.read())
@@ -81,14 +83,15 @@ def automated_testing():
         for url in links:
             url = str(url)
             url = url[2:-3]
-            #print(url)
+            print(url)
             cb_features = get_data(str(url))
             result =  str(model.predict([cb_features]))
             result = result[2:-2]
-            #print(result)
+            print(result)
             json_dict[url] = result
         json_dict = json.dumps(json_dict)
         return json.loads(json_dict)
+    
     if request.method == 'GET':
         return "Please send a post request with a text file containing links to r/india."
 

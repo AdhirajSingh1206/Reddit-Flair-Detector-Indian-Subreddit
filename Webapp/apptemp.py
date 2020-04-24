@@ -34,7 +34,7 @@ def clean_text(text):
 
 app = Flask(__name__, template_folder='templates')
 
-model = pickle.load(open('Lr.pkl','rb'))
+model = pickle.load(open('RM.pkl','rb'))
 
 
 @app.route('/', methods=['GET', 'POST'])
