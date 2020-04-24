@@ -9,7 +9,8 @@ from nltk.corpus import stopwords
 import gensim
 nltk.download('stopwords')
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
+import json
 
 reddit = praw.Reddit(client_id="ffKcEa2xKfnhyg", client_secret="IJqQkTrDio0xKsKYKYmgeWSoOLM",
                      user_agent="flair_predication", username="ASingh1206",
@@ -73,12 +74,21 @@ def main():
 def automated_testing():
     if request.method == 'POST':
         file = request.files['upload_file'] 
-        content = str(file.read())
-        link = content[2:-1]
-        cb_features = get_data(str(link))
-        result =  model.predict([cb_features])
-        print(result)
-        return jsonify(str(result))
+        #content = str(file.read())
+        links = file.readlines()
+        #print(links)
+        json_dict = {}
+        for url in links:
+            url = str(url)
+            url = url[2:-3]
+            #print(url)
+            cb_features = get_data(str(url))
+            result =  str(model.predict([cb_features]))
+            result = result[2:-2]
+            #print(result)
+            json_dict[url] = result
+        json_dict = json.dumps(json_dict)
+        return json.loads(json_dict)
     if request.method == 'GET':
         return "Please send a post request with a text file containing links to r/india."
 
