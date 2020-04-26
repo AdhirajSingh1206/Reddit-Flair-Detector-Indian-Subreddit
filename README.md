@@ -1,5 +1,5 @@
 # About Reddit Flair Detector:
-This repositor demonstrates the project life cycle of a WebApp deployed to predict the Flair of a set of Reddit post in the subReddit r/india just from their urls.
+This repository demonstrates the project life cycle of a WebApp deployed to predict the Flair of a set of Reddit post in the subReddit r/india from their urls.
 
 This Project can be subdivided into 5 parts:
   1. Data Acquisition from Reddit.
@@ -11,20 +11,17 @@ This Project can be subdivided into 5 parts:
 The deployed WebApp can be found [https://flair--predictor.herokuapp.com/](https://flair--predictor.herokuapp.com/ "Flair Detector")<br>
 And the link for the Automated Testing Endpoint can be found [https://flair--predictor.herokuapp.com/automated_testing](https://flair--predictor.herokuapp.com/automated_testing "Automated Testing Endpoint")
 
-`Add photo here`
-
-## Table of Content:
-
+![WebApp](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Readme-Images/WebApp.png )
 
 ## Directory Structure:
 The description of files and folders can be found below:
-1. [Data](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/Data)
-2. [Jupyter Notebooks](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/Jupyter%20notebooks)
-3. [WebApp](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/Webapp)  
-4. [WebApp Testing](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/WebApp%20Testing)
+1. [Data](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/Data) - Contains all types of data( CSV files, Pickled Weight files, h5 weight files etc.)
+2. [Jupyter Notebooks](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/Jupyter%20notebooks) - Contains the jupyter notebooks for Data Acquisition, EDA, Model selection, Experiment Logs.
+3. [WebApp](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/Webapp) - Contains all files to deploy the WebApp.  
+4. [WebApp Testing](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/WebApp%20Testing) - Contains files to test the WebApps Automated_testing feature.
   
 ## How to reproduce this project:
-1. Clone into repository into any folder `git clone https://github.com/chandan21gupta/Reddit-Flair-Detector`
+1. Clone into repository into any folder `git clone https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit.git`
 2. Create a virtual environment by the command `virtualenv -p python3 FlairPred`
 and Activate it using `source FlairPred/bin/activate`
 3. Install all the dependencies using the command `pip3 install -r requirements.txt`
@@ -32,9 +29,8 @@ and Activate it using `source FlairPred/bin/activate`
 
 ## Project Development:
 
- 
+![.](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Readme-Images/Project_managment.png)
 
-`Add photo here`
 ## Code Base 
 The entire code has been developed using Python programming language.<br>
 Classification models were developed majorly using Sklearn and Tensorflow 2.0.
@@ -73,12 +69,10 @@ Further Validation of each model was also done using K-Fold validation as it is 
 
 Linear SVM was found to have the Best weighted accuracy over all the flairs. 
 
-'Photo of accuracy'
+![](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Readme-Images/BaseModel.png)
 
-We can observe that it produces best results for 
-And produces least accurate results for
-
-I made did further HyperParameter tuning by.........
+We can observe that it produces best results for Food and Policy Flairs at about 88% accuracy.
+And produces least accurate results for Photography and Politcs at about 50% accuracy.
 
 ### Complex Model:
 I initiated the development of this model by vectorizing our training corpus and preprocessing it.
@@ -151,10 +145,11 @@ model = tf.keras.Sequential([
 ])
 ```
 
-Out of All these Models, the 2nd Model has the best results. 
-I then performed further hyperparameter optimizations.
+Out of All these Models, the 2nd Model has the best results.<br>
+This model had Word Embedding coupled along with maxpooling and a 0.5 Dropout layer.
+![](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Readme-Images/ComplexModel.png)
 
-
+As we observe that the Validation Loss curve starts rising at about 10 Epochs, this is when the model starts Over-Training. 
 
 ## Development of WebApp: 
 Flask was used to develop the WebApp.<br>
@@ -173,7 +168,11 @@ This was done at each step by running the WebApp on my local server and then tes
 
 A custom script (Automated_testing.py) was also written to send POST requests to the App. This validated all the functioning of the App.
 
-`add photo here`
+![](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Readme-Images/automated.png)
+<br>
+Result of which is:
+<br>
+![](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Readme-Images/automated_testing.png)
 
 ## Deployment as a Web Service:
 The WebApp was deployed using Heroku which is essentially a PaaS(Platform as a Service).
@@ -184,14 +183,15 @@ Due to this fact i was limited to using a rather basic model as compared to some
 
 Hence i Deployed the model which had been selected as a Baseline Model.
 
-'Add photo of deployment here'.
+![](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Readme-Images/Deployment.png)
 
 ## System Integrated Testing:
 Through tested was done after the WebApp was deployed on Heroku.
-Edge case testing was done using the Front end of the App.
-A 3rd party software called POSTMAN was used to test GET and POST features of both the routines.
+Edge case testing was done using the Front end of the App.<br>
+A development tool called POSTMAN was used to test GET and POST features of both the routines.
+
 A custom script (Automated_testing.py) was also written to send POST requests to the automated testing route, validating its functioning.
 
-`Add photo here`
+![](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Readme-Images/PostMan_testing.png)
 
 The WebApp stands O.K. Tested.
