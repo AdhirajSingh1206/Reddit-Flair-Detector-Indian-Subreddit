@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+Webapp/RM.pkl
+Jupyter notebooks/Local Data/RM.pkl
+Data/glove.6B.50d.txt
+Data/RM.pkl
