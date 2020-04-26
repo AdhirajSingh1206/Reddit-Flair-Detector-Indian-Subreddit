@@ -11,11 +11,34 @@ This Project can be subdivided into 5 parts:
 The deployed WebApp can be found [https://flair--predictor.herokuapp.com/](https://flair--predictor.herokuapp.com/ "Flair Detector")<br>
 And the link for the Automated Testing Endpoint can be found [https://flair--predictor.herokuapp.com/automated_testing](https://flair--predictor.herokuapp.com/automated_testing "Automated Testing Endpoint")
 
-## Directory Structure
+`Add photo here`
 
-## Project Development 
+## Table of Content:
 
+
+## Directory Structure:
+The description of files and folders can be found below:
+1. [Data](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/Data)
+2. [Jupyter Notebooks](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/Jupyter%20notebooks)
+3. [WebApp](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/Webapp)  
+4. [WebApp Testing](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/WebApp%20Testing)
+  
+## How to reproduce this project:
+1. Clone into repository into any folder `git clone https://github.com/chandan21gupta/Reddit-Flair-Detector`
+2. Create a virtual environment by the command `virtualenv -p python3 FlairPred`
+and Activate it using `source FlairPred/bin/activate`
+3. Install all the dependencies using the command `pip3 install -r requirements.txt`
+4. Go inside the WebApp folder and enter command `Python3 flask_app.py` to start the local server. It can be found at [http://localhost:5000](http://localhost:5000 "Local Server")
+
+## Project Development:
+
+ 
+
+`Add photo here`
 ## Code Base 
+The entire code has been developed using Python programming language.<br>
+Classification models were developed majorly using Sklearn and Tensorflow 2.0.
+The WebApp has been developed using Flask web framework and hosted on the Heroku web server.
 
 ## Data Aquisition:
 The corresponding notebook demonstrates the scraping of data from the r/india subreddit using Praw Module in python.
@@ -26,6 +49,9 @@ Post scraping the data, we saves the data in a csv file for further processing u
 We further load this raw Data again using Pandas and preform several cleaning and regularisation techniques and save it back into a csv file.
 
 The saved data can be found in the Data folder.
+
+Each Flair has about 230 posts corresponding to it on an average.
+Adding upto 2242 posts in total.
 
 ## EDA:
 
@@ -125,16 +151,21 @@ model = tf.keras.Sequential([
 ])
 ```
 
+Out of All these Models, the 2nd Model has the best results. 
+I then performed further hyperparameter optimizations.
+
+
+
 ## Development of WebApp: 
 Flask was used to develop the WebApp.<br>
 The development of the WebApp was a 3 step process in which each step had increased complexity and untility:
   1. Development of AppBase.py:<br>
   This script contained the basic initalizations for Flask and only a "Hello World" message was displayed as the   front-end. It was just a static App.
-  2. Development of AppTemp.py:
+  2. Development of AppTemp.py:<br>
   This script had features which enables it to receive POST requests in form of text or files.
   A more user friendly Front-End was also developed for this script.<br>
   The feature of automated testing was also added to the WebApp.
-  3. Development of the final App.py:
+  3. Development of the final App.py:<br>
   This script finally included the features for scraping the data corresponding to the Link received and then predicting its Flair using the Model file loaded, this result was then Displayed using the front-end.<br>
   The feature of receiveing multiple links at once in a file and then returning their corresponding resulting in a JSON file were also added.
 ### Unit testing for the WebApp:
@@ -142,6 +173,7 @@ This was done at each step by running the WebApp on my local server and then tes
 
 A custom script (Automated_testing.py) was also written to send POST requests to the App. This validated all the functioning of the App.
 
+`add photo here`
 
 ## Deployment as a Web Service:
 The WebApp was deployed using Heroku which is essentially a PaaS(Platform as a Service).
@@ -160,6 +192,6 @@ Edge case testing was done using the Front end of the App.
 A 3rd party software called POSTMAN was used to test GET and POST features of both the routines.
 A custom script (Automated_testing.py) was also written to send POST requests to the automated testing route, validating its functioning.
 
-The WebApp stands Tested.
+`Add photo here`
 
-## References:  
+The WebApp stands O.K. Tested.
