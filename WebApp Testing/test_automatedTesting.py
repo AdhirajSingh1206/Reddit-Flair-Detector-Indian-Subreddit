@@ -1,6 +1,6 @@
 import requests
 
-url = "http://127.0.0.1:5000/automated_testing"
+url = "https://flair--predictor.herokuapp.com/automated_testing"
 
 
 files = {'upload_file': open('file.txt','rb')}
