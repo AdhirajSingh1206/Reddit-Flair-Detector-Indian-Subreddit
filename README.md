@@ -37,6 +37,8 @@ Classification models were developed majorly using <b>Sklearn and Tensorflow 2.0
 The WebApp has been developed using <b>Flask web framework</b> and hosted on the <b>Heroku web server.</b>
 
 ## Data Aquisition:
+[Data Aquisition](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Jupyter%20notebooks/Data%20Aquisition.ipynb)
+
 The corresponding notebook demonstrates the scraping of data from the r/india subreddit using <b>Praw Module</b> in python.
 PRAW which stands for Python Reddit API Wrapper helps us scrape data sceamlessly from any subreddit.
 
@@ -57,7 +59,10 @@ Developing the <b>classification model</b> was a 2 phase process:
 1. Defining a <b>Base model</b>, which is will be used as a comparison with the more advanced models that we were test. 
 2. Develop a more <b>Complex Deep Nural Network based model</b> using Tensorflow 2.0.
 
-### Base Model: 
+### Base Model:
+[Best Baseline Model](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Jupyter%20notebooks/Best%20Baseline%20Model%20.ipynb)<br>
+[Baseline Model Experiment-log](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Jupyter%20notebooks/Baseline%20Experiment-Log.ipynb)
+
 Evaluated a variety a <b>Linear and Non-linear Models</b> provided by Sklearn like:
 * Naive Bayes 
 * Linear SVM
@@ -77,6 +82,10 @@ And produces <b>least accurate results for Photography and Politcs</b> at about 
 This could be due to the fact that the number of posts for there flairs was lesser as compared to the other flairs.
 
 ### Complex Model:
+[Best Complex Model](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Jupyter%20notebooks/Best%20Complex%20Model.ipynb)
+
+[Complex Model Experiment-log](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Jupyter%20notebooks/Complex%20Model%20Experiment-Log.ipynb)
+
 I initiated the development of this model by <b>vectorizing our training corpus and preprocessing it</b>.
 Then I developed serveral iterations of Sequential Models using Tensorflow 2.0
 
@@ -124,7 +133,7 @@ model = tf.keras.Sequential([
     tf.keras.layers.Dense(10, activation='softmax')
 ])
 ```
-* Sequential Model a <b>1D Convolutional layer with word embedding</b>: It reached a validation accuracy of
+* Sequential Model a <b>1D Convolutional layer with word embedding</b>: It reached a validation accuracy of 62%
 ```
 model = tf.keras.Sequential([
     tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=max_length),
@@ -143,7 +152,9 @@ This model had <b>Word Embedding coupled along with maxpooling and a 0.5 Dropout
 
 As we observe that the <b>Validation Loss curve starts rising at about 10 Epochs</b>, this is when the model starts <b>Over-Training.</b> 
 
-## Development of WebApp: 
+## Development of WebApp:
+[WebApp](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/Webapp)
+
 Flask was used to develop the WebApp.<br>
 The development of the WebApp was a 3 step process in which each step had increased complexity and untility:
   1. Development of <b>Appbase.py:</b><br>
@@ -179,6 +190,7 @@ Hence i Deployed the model which had been selected as a Baseline Model.
 ![](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Readme-Images/Deployment.png)
 
 ## System Integrated Testing:
+[WebApp Testing](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/WebApp%20Testing)
 Through tested was done after the WebApp was deployed on <b>Heroku.</b>
 Edge case testing was done using the Front end of the App.<br>
 A development tool called <b>POSTMAN</b> was used to test <b>GET and POST features of both the routines.</b>
