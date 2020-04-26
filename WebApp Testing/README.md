@@ -3,3 +3,9 @@ A custom script (Automated_testing.py) was written to send POST request containi
 
 A JSON file is returned as response which contains the sent links as keys and their predicted Flairs as the value to the pair.
 
+![](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Readme-Images/automated.png)
+
+And its Result in JSON
+
+
+![](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Readme-Images/automated_testing.png)

@@ -15,7 +15,8 @@ Template Folder contains all the html files.
 
 
 ### Unit testing for the WebApp:
-This was done at each step by running the WebApp on my local server and then testing using a 3rd party software called POSTMAN which is used to test APIs.
+This was done at each step by running the WebApp on my local server and then testing using a Development tool called POSTMAN which is used to test APIs.
 
 A custom script (Automated_testing.py) was also written to send POST requests to the App. This validated all the functioning of the App.
 
+![](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Readme-Images/PostMan_testing.png)
