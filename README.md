@@ -112,7 +112,7 @@ model = tf.keras.Sequential([
     tf.keras.layers.Dense(10, activation='softmax')
 ])
 ```
-* Sequential Model with <b>Custom word embedding using GloVe and our own training dat fused</b>: It reached a validation accuracy of 61%.
+* Sequential Model with <b>Custom word embedding using GloVe and our own training data fused</b>: It reached a validation accuracy of 61%.
 ```
 model = tf.keras.Sequential([
     tf.keras.layers.Embedding(vocab_size, embedding_dim, weights=[embedding_matrix],
