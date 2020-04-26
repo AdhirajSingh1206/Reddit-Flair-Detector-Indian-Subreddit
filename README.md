@@ -29,6 +29,13 @@ and Activate it using `source FlairPred/bin/activate`
 
 ## Project Development:
 
+The project development-cycle was base on the <b>Agile Project Management</b> type, in which wark was done in <b>smaller chunks, or sprints, that allow projects to pivot when needed.</b>
+
+This made sure that at any certain time all the subparts of the project had some work done, this <b>revealed any bootnecks</b> in the project caused by any subpart.
+<br><br>
+For logging <b>Issues were created on Github</b> and also update frequently.
+<br>
+<br>
 ![.](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Readme-Images/Project_managment.png)
 
 ## Code Base 
@@ -52,6 +59,13 @@ Each Flair has about 230 posts corresponding to it on an average.
 Adding upto <b>2242 posts</b> in total.
 
 ## EDA:
+[EDA](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/blob/master/Jupyter%20notebooks/Exploratory%20Data%20Analysis.ipynb)<br><br>
+Conducted an exhaustive look at existing data from current scrapped data.
+<br>
+The intent of the EDA was to determine whether a predictive model is a viable analytical tool for this particular problem, and if so, which type of modeling is most appropriate.
+<br> 
+I observed that the Flairs were both Quantitativly and Qualitativly dependent on Combined Features(Title + Body + Comments).
+<br>Hence both Machine learning and Deep Learning Based models performed almost equally on this.
 
 
 ## Flair Classification Model: 
@@ -191,7 +205,7 @@ Hence i Deployed the model which had been selected as a Baseline Model.
 
 ## System Integrated Testing:
 [WebApp Testing](https://github.com/AdhirajSingh1206/Reddit-Flair-Detector-Indian-Subreddit/tree/master/WebApp%20Testing)
-Through tested was done after the WebApp was deployed on <b>Heroku.</b>
+Thorough tested was done after the WebApp was deployed on <b>Heroku.</b>
 Edge case testing was done using the Front end of the App.<br>
 A development tool called <b>POSTMAN</b> was used to test <b>GET and POST features of both the routines.</b>
 
