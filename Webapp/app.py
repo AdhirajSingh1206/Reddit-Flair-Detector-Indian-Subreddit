@@ -15,7 +15,7 @@ from flask import Flask, render_template, request
 import json
 
 # Loading the Model file 
-model = pickle.load(open('RM.pkl','rb'))
+model = pickle.load(open('SVM.pkl','rb'))
 
 # Establishing connectiong with PRAW API
 reddit = praw.Reddit(client_id="ffKcEa2xKfnhyg", client_secret="IJqQkTrDio0xKsKYKYmgeWSoOLM",
