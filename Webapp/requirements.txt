@@ -63,7 +63,7 @@ proglog==0.1.9
 progressbar2==3.47.0
 prometheus-client==0.7.1
 prompt-toolkit==2.0.10
-protobuf==3.11.1
+protobuf==3.18.3
 ptyprocess==0.6.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.7
